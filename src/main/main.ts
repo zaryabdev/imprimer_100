@@ -13,9 +13,56 @@ import log from 'electron-log';
 import Store from 'electron-store';
 import { autoUpdater } from 'electron-updater';
 import path from 'path';
+import PouchDB from 'pouchdb';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+
 const store = new Store();
+const db = new PouchDB('pouch_100');
+
+console.log('Going to call dbput');
+// db.put({
+//   _id: 'mydoc',
+//   title: 'Heroes',
+// })
+//   .then(function (response) {
+//     console.log('Inside db put');
+//     console.log(response);
+//   })
+//   .catch(function (err) {
+//     console.log('Error in data entry');
+
+//     console.log(err);
+//   });
+
+// db.get('mydoc')
+//   .then(function (doc) {
+//     return db.put({
+//       _id: 'mydoc',
+//       _rev: doc._rev,
+//       title: "Let's Dance",
+//     });
+//   })
+//   .then(function (response) {
+//     console.log('Inside db put');
+//     console.log(response);
+//   })
+//   .catch(function (err) {
+//     console.log('Error in data entry');
+//     console.log(err);
+//   });
+
+db.post({
+  title: 'Ziggy Stardust',
+})
+  .then(function (response) {
+    console.log('Inside db post');
+    console.log(response);
+  })
+  .catch(function (err) {
+    console.log('Error in data entry');
+    console.log(err);
+  });
 
 class AppUpdater {
   constructor() {

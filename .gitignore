@@ -21,7 +21,7 @@ node_modules
 release/app/dist
 release/build
 .erb/dll
-
+pouch_100
 .idea
 npm-debug.log.*
 *.css.d.ts
